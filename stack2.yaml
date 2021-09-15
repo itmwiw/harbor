@@ -1,0 +1,121 @@
+
+# A secret of harbor admin password.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: admin-core-secret
+  namespace: cluster-sample-ns
+data:
+  secret: aGFyYm9yMTIzNA==
+type: Opaque
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: harbor-test-ca
+  namespace: cluster-sample-ns
+data:
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVFekNDQXZ1Z0F3SUJBZ0lKQVBoYkRTNVZETkxRTUEwR0NTcUdTSWIzRFFFQkN3VUFNSUdmTVFzd0NRWUQKVlFRR0V3SkpUakVMTUFrR0ExVUVDQXdDUkV3eEN6QUpCZ05WQkFjTUFrUk1NUXN3Q1FZRFZRUUtEQUpFUmpFTApNQWtHQTFVRUN3d0NTVlF4S2pBb0JnTlZCQU1NSVdoaGNtSTJMbUZ3Y0hNdWIzQnpkQzVrYVhaNVlXNXphSFYwClpXTm9Mbmg1ZWpFd01DNEdDU3FHU0liM0RRRUpBUlloWkdsMmVXRnVjMmgxWTJodmRXUm9ZWEo1UUhWdWRHaHAKYm10aFlteGxMbU52TUI0WERUSXhNRGt3T1RBME1UVXlNMW9YRFRJeE1UQXdPVEEwTVRVeU0xb3dnWjh4Q3pBSgpCZ05WQkFZVEFrbE9NUXN3Q1FZRFZRUUlEQUpFVERFTE1Ba0dBMVVFQnd3Q1JFd3hDekFKQmdOVkJBb01Ba1JHCk1Rc3dDUVlEVlFRTERBSkpWREVxTUNnR0ExVUVBd3doYUdGeVlqWXVZWEJ3Y3k1dmNITjBMbVJwZG5saGJuTm8KZFhSbFkyZ3VlSGw2TVRBd0xnWUpLb1pJaHZjTkFRa0JGaUZrYVhaNVlXNXphSFZqYUc5MVpHaGhjbmxBZFc1MAphR2x1YTJGaWJHVXVZMjh3Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRRE1kSWllCjRleUlGb2p3RVZwQVYrMmkzZk8zRTFQeWdvZng3S2lCRk1LSXpIbVBiaTNwVkhCd1Zob2VwSEJDMHBQOWRkR1UKbWNVWUU1bERvaU04cklMUVlKTEJpaHR1cDI2OTlQK0pCUVBLUEZFblV0S0dPaE1NbWgwNUtEeFpTek1Jb3NldAp2VVc1R082MWlOdUl0anhHR1RKREt5N084THltd3owQ0ZTbVpaU1BzdzNFRWZXL2V0cll4bVgzTmpLMDlJTzd6Cnp2bms5V3hwdnNGOEFCcTVHdmZyNmd1N2RqUFdGSkUvRDE5ZEp3Q3Z1N2tKQWNxZGRBTHVBMGtxOVpNZDhBMTkKbERycmZ5UUpCazhtZ1lUSDNXbjNvZHdKajRnbDlwUUc5L0ZXby9CcnNadkljb1lFMG9XZUVjeE55SkE1ZmdXSApCNkw5VTNjZkxzZUZMMTlSQWdNQkFBR2pVREJPTUIwR0ExVWREZ1FXQkJUOHVWZDRGc1R0NFJJRGRCRUVoQSsvCitPbCtBekFmQmdOVkhTTUVHREFXZ0JUOHVWZDRGc1R0NFJJRGRCRUVoQSsvK09sK0F6QU1CZ05WSFJNRUJUQUQKQVFIL01BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQWpCZU45YVpTN0RGcjFTQ3F4S1lCNVV2aDhKWWVKNWFnTgo3RVhTbk54dVFnVk1QTVZKMFhlb1JRUnlDQzdZakxNQnpVN0grYS9xd3YwNTc2cFNvS1VvUHN6ZG9PRXg3QzdpCjN6aWxFOEpxU0c3bUJsQ2VoRCt5UDZmcmdubExnclVhUHFaNGhjUHhURUhWRkVWbzdXS2Z5REYvRE1KUU0xWC8KanJrSDA4TVdJVGNxa0toeTFUcGRWdDI3VGkzSmM2bW1McVJ0ajJaWmd1dHFEamJnVHQraDVxMzRuOUZ4c2IwTAp4enpOdng2WU9hcUtoaVhlbkorLzk1L1BFZVUyWUpkbFRxeHlXN1VBTFlydUdHZEpnU1d6K242RDNjMDBrcXB3CnhBM0hHSmhqV2V4SWYwYzk1S3B6UmhuUGoxdmhhKzVRQkUzaUlsUlFkemNjME9NNEhISUUKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQ==
+  tls.key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcGdJQkFBS0NBUUVBekhTSW51SHNpQmFJOEJGYVFGZnRvdDN6dHhOVDhvS0g4ZXlvZ1JUQ2lNeDVqMjR0CjZWUndjRllhSHFSd1F0S1QvWFhSbEpuRkdCT1pRNklqUEt5QzBHQ1N3WW9iYnFkdXZmVC9pUVVEeWp4UkoxTFMKaGpvVERKb2RPU2c4V1VzekNLTEhyYjFGdVJqdXRZamJpTFk4UmhreVF5c3V6dkM4cHNNOUFoVXBtV1VqN01OeApCSDF2M3JhMk1abDl6WXl0UFNEdTg4NzU1UFZzYWI3QmZBQWF1UnIzNitvTHUzWXoxaFNSUHc5ZlhTY0FyN3U1CkNRSEtuWFFDN2dOSkt2V1RIZkFOZlpRNjYzOGtDUVpQSm9HRXg5MXA5NkhjQ1krSUpmYVVCdmZ4VnFQd2E3R2IKeUhLR0JOS0ZuaEhNVGNpUU9YNEZod2VpL1ZOM0h5N0hoUzlmVVFJREFRQUJBb0lCQVFDdStpelNqVmY1UUJBQwpKVmV3S1pCZkNzVkJzWER1NDNlbFBIMFp1OEtoZ1Iybit3dWYzWHc5Si9OQ3RraTlaNnJ3Q0oxTktDemQ1aWdOCkVmNUdOdjNkaUVrUkNqbGdBanRzcHZqck16ZURKUXZ2TTVxbzlackg5ajE4WlVzQXdMTDBlUnViUFprbVNJaEQKSk5WOXN6anlaUzMyL2tZWkpUN1BHZGhrcCtmcU5uVGhIamFiRDE4amNWbmJPdHVkMzNyeGl1QTRCRjI1cXQ5Ygo2WkN1bGxzUEZ6ZFZLeFVaalJzczU0MTNxbldCQWptRkE0RTgvSnovTG1OWVBWV29HVE1Ld1haaE1UL0FuZzQ4Cm5MM01YUWdNZU5WVUIxcGtDdHRxSWxiaVlXWVQ1bExnYWcrMUZYclZlb0FsTW9uUmplblkrcEZjMnJXQ0RoTFEKNkViNmdBcUJBb0dCQVBEeURvdnVTVVlmK1pnRzV0M3RndUU5RlBBK2hmRWwrY0J2Nkl4eEhielIrVjJHZFpnNQpTczBhQnZRZzRGSWlMWHZoWElEcU9KeXdQSjZyckN6bjRTazVJN09sRnRqUU0vUGFPbEY4cWp6WVAwVlcvenNSCnQ1ZmZadTU4VjhyMWphbWk3dmp6OFRWQVczcnhrbzhmeVJSQ1JDS29FZThsQm9oaHNkSitoSnU5QW9HQkFOazYKejZreXFFM2hraWN6akpVRzhyZGRkYkh4UWNjMldFUklGUWJqV0F0SWdQd3BNaGhHZFlEVlBFU1RMTlpWZkREbQpmQndjbXRXQ1FGTjRES0dmZ0lSMU9pNFc5NDRQbm9TOHRwNkF0cFN1Z2xrQXdXRjl3TXFJcVd2Qk5ubm1NbmlQCkFsRGxmendNNjhtM2ViclhwTHMyanM2bEVRRVdQNTZHQWxmdUQ2RWxBb0dCQU5IZk5mYUM5NFpDZ2NqL2NnY3IKUkE1bmd4NkVoMnoyMUNYZ0ZHS0lnUXVncGlIbDVmWlRLU21nR3lCNHBveEVRdlFkNTlKT3NrTWhhNXdXRXVJRwpsR1N3NWIwcjlzdWlCeTdJRG5ZK0xaYlVFY0NYTjdnL0JYa2ZXZXd2bU5VcnNGcHJsdFo0dmNqUnB4MWU0SGNVCmk3Uyt4OVNjS3dyd2FGRlJMM0FYVGZETkFvR0JBSlZMK0VEL1VmRUU0U0FVSzhDWTMrUHFWZU9RUG5jZUFKZ2QKT21aYmhiMXJmVXJSUFY2MXZqaG5WVjZFRUVMV3lkNEo2cTZmY2tMZm5EcEJ2ZHl1OVBNVVpvSWF3dFZlSXNKegp1TWREQ3prd251Rnd4WGV0cC8wSzQvWHMrdlhZb2tOOWRrZ0hFdVZBdENVVTlwTFZkcUE4cFBXZE9ReVlMKzFSCmlQYko1UEFKQW9HQkFOdTJPQkJpL3pHWlhZVkxydkI1VFhiQnZ0Nkt4cGFqU3BaU0EwcnMwdTNFajkwQ3VWOUgKeGd1WThXUHRFeWNRZi8zLzlVR3o1OFpSUnBKRnY4UjlLUHMycEtoVnpUai9ReGpzbGdyTFFydGJlZHJEWlNzMgp0UVhub3plVVJTcEdtWVJ2NDhoUGxuTWppZGpzalVNV0MvdXJnMW1YWjErSTIwOXQ0ZExWRkQvaAotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQ==
+---
+# Cert issuer
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: selfsigned-issuer
+  namespace: cluster-sample-ns
+spec:
+  ca:
+    secretName: harbor-test-ca
+---
+# Certificates of ingress
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: sample-public-certificate
+  namespace: cluster-sample-ns
+spec:
+  secretName: sample-public-certificate
+  dnsNames:
+    - harb6.apps.opst.divyanshutech.xyz
+    - notary6.apps.opst.divyanshutech.xyz
+  issuerRef:
+    name: selfsigned-issuer
+    kind: Issuer
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sample-harbor-registry
+  namespace: cluster-sample-ns
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 3Gi
+---
+# Full stack Harbor
+apiVersion: goharbor.io/v1beta1
+kind: HarborCluster
+metadata:
+  name: harborcluster-sample
+  namespace: cluster-sample-ns
+spec:
+  version: 2.3.0
+  logLevel: debug
+  imageSource:
+    repository: ghcr.io/goharbor
+  harborAdminPasswordRef: admin-core-secret
+  externalURL: https://harb6.apps.opst.divyanshutech.xyz
+  expose:
+    core:
+      LoadBalancer:
+        Enable: true
+      ingress:
+        host: harb6.apps.opst.divyanshutech.xyz
+        controller: default
+      tls:
+        certificateRef: sample-public-certificate
+  internalTLS:
+    enabled: false
+  portal: {}
+  registry:
+    metrics:
+      enabled: true
+  core:
+    tokenIssuer:
+      name: selfsigned-issuer
+      kind: Issuer
+    metrics:
+      enabled: true
+  exporter: {}
+  database:
+    kind: PostgreSQL
+    spec:
+      postgresql: 
+        username: postgres # Required
+        passwordRef: new-psql # Optional
+        hosts:
+          - host: psql-postgresql.psql.svc.cluster.local
+            port: 5432 # Optional  
+        sslMode: require
+  storage:
+    kind: FileSystem
+    spec:
+      fileSystem:
+        registryPersistentVolume:
+          claimName: sample-harbor-registry
+  cache:
+    kind: "Redis"
+    spec:
+      redis:
+        # Server host.
+        host: harbor-redis-master.cluster-sample-ns.svc.cluster.local
+        # Server port.
+        port: 6379 # Required
+        # For setting sentinel masterSet. 
+        # Secret containing the password to use when connecting to the server.
+        passwordRef: harbor-redis # Optional
+        # Secret containing the client certificate to authenticate with.
