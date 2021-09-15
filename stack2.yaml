@@ -71,8 +71,6 @@ spec:
   externalURL: https://harb6.apps.opst.divyanshutech.xyz
   expose:
     core:
-      LoadBalancer:
-        Enable: true
       ingress:
         host: harb6.apps.opst.divyanshutech.xyz
         controller: default
