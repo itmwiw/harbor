@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.operator.appName }}
+spec:
+  destination:
+    name: ''
+    namespace: {{ .Values.operator.destNamespace }}
+    server: '{{ .Values.operator.destinationServer }}'
+  project: {{ .Values.operator.appNamespace }}
+  syncPolicy: 
+  # set automated to null if sync to be manual
+    automated: 
+      prune: {{ .Values.operator.prune }}
+      selfHeal: {{ .Values.operator.selfHeal }} 
+    {{ with .Values.operator.syncOptions }}
+    syncOptions:
+      {{- toYaml . | nindent 6 }}
+    {{ end }}    
+  source:
+    path: {{ .Values.operator.sourcePath }}
+    repoURL: '{{ .Values.operator.repoURL }}'
+    targetRevision: {{ .Values.operator.targetRevision }}   
+    helm:
+      values: |-
+        image:
+          tag: "{{ .Values.operator.helm.image-tag }}"
+        installCRDs: true

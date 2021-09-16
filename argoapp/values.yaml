@@ -1,0 +1,20 @@
+operator:
+  appName: operator
+  # namespace in which opendistro to be installed in
+  destNamespace: harbor-operator-ns
+  destinationServer: https://kubernetes.default.svc
+  appNamespace: default
+  prune: false
+  selfHeal: false
+  syncOptions:
+    - Validate=false
+    - PruneLast=false
+    - Replace=false
+    - CreateNamespace=false
+    - ApplyOutOfSyncOnly=false
+  sourcePath: charts/harbor-operator  
+  # official repo of opendistro
+  repoURL: 'https://github.com/goharbor/harbor-operator.git'
+  targetRevision: HEAD
+  helm:
+    image-tag: "latest"
