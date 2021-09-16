@@ -17,4 +17,4 @@ operator:
   repoURL: 'https://github.com/goharbor/harbor-operator.git'
   targetRevision: HEAD
   helm:
-    image-tag: "latest"
+    imageTag: "latest"
