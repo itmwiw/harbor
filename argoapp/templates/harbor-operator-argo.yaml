@@ -32,14 +32,14 @@ spec:
           # fsGroup: 2000
         redisoperator:
           # redisoperator.enabled -- Whether to enabled [Redis Operator](https://github.com/spotahome/redis-operator)
-          enabled: {{ .Values.operator.helm.redis-operator-install }}
+          enabled: {{ .Values.operator.helm.redisOperatorInstall }}
           rbac:
             install: true
 
         minio-operator:
           # minio-operator.enabled -- Whether to enabled [MinIO Operator](https://github.com/minio/operator)
-          enabled: {{ .Values.operator.helm.minio-operator-install }}
+          enabled: {{ .Values.operator.helm.minioOperatorInstall }}
 
         postgres-operator:
           # postgres-operator.enabled -- Whether to enabled [Postgres operator](https://github.com/zalando/postgres-operator)
-          enabled: {{ .Values.operator.helm.postgres-operator-install }}
+          enabled: {{ .Values.operator.helm.postgresOperatorInstall }}

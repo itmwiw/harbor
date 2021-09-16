@@ -19,6 +19,6 @@ operator:
   helm:
     imageTag: "latest"
     runAsUser: 1000720001
-    redis-operator-install: false
-    minio-operator-install: false
-    postgres-operator-install: false
+    redisOperatorInstall: false
+    minioOperatorInstall: false
+    postgresOperatorInstall: false
