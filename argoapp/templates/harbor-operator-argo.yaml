@@ -27,6 +27,19 @@ spec:
           tag: {{ .Values.operator.helm.imageTag }}
         installCRDs: true
         podSecurityContext:
-          runAsUser: 1000720001
+          runAsUser: {{ .Values.operator.helm.runAsUser }}
           runAsNonRoot: true
           # fsGroup: 2000
+        redisoperator:
+          # redisoperator.enabled -- Whether to enabled [Redis Operator](https://github.com/spotahome/redis-operator)
+          enabled: {{ .Values.operator.helm.redis-operator-install }}
+          rbac:
+            install: true
+
+        minio-operator:
+          # minio-operator.enabled -- Whether to enabled [MinIO Operator](https://github.com/minio/operator)
+          enabled: {{ .Values.operator.helm.minio-operator-install }}
+
+        postgres-operator:
+          # postgres-operator.enabled -- Whether to enabled [Postgres operator](https://github.com/zalando/postgres-operator)
+          enabled: {{ .Values.operator.helm.postgres-operator-install }}
