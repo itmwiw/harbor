@@ -26,3 +26,7 @@ spec:
         image:
           tag: {{ .Values.operator.helm.imageTag }}
         installCRDs: true
+        podSecurityContext:
+          runAsUser: 1000720001
+          runAsNonRoot: true
+          # fsGroup: 2000
