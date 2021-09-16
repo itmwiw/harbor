@@ -22,3 +22,21 @@ operator:
     redisOperatorInstall: false
     minioOperatorInstall: false
     postgresOperatorInstall: false
+cluster:
+  appName: harbor-cluster
+  # namespace in which opendistro to be installed in
+  destNamespace: cluster-sample-ns
+  destinationServer: https://kubernetes.default.svc
+  appNamespace: default
+  prune: false
+  selfHeal: false
+  syncOptions:
+    - Validate=false
+    - PruneLast=false
+    - Replace=false
+    - CreateNamespace=false
+    - ApplyOutOfSyncOnly=false
+  sourcePath: harbor-cluster-components 
+  # official repo of opendistro
+  repoURL: 'https://github.com/divyanshuch1/harbor.git'
+  targetRevision: v1

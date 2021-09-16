@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.cluster.appName }}
+spec:
+  destination:
+    name: ''
+    namespace: {{ .Values.cluster.destNamespace }}
+    server: '{{ .Values.cluster.destinationServer }}'
+  project: {{ .Values.cluster.appNamespace }}
+  syncPolicy: 
+  # set automated to null if sync to be manual
+    automated: 
+      prune: {{ .Values.cluster.prune }}
+      selfHeal: {{ .Values.cluster.selfHeal }} 
+    {{ with .Values.cluster.syncOptions }}
+    syncOptions:
+      {{- toYaml . | nindent 6 }}
+    {{ end }}    
+  source:
+    path: {{ .Values.cluster.sourcePath }}
+    repoURL: '{{ .Values.cluster.repoURL }}'
+    targetRevision: {{ .Values.cluster.targetRevision }}   
