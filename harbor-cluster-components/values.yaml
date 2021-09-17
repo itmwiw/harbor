@@ -1,7 +1,7 @@
 namespace: cluster-sample-ns
 adminPassword: aGFyYm9yMTIzNA==
 commonName: harb6.apps.opst.divyanshutech.xyz
-storageSize: 3Gi
+storageSize: 3Gi # for filesystem
 internalTLS: false
 coreHostName: harb6.apps.opst.divyanshutech.xyz
 psqlHost: psql-postgresql.psql.svc.cluster.local   
