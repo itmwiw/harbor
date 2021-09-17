@@ -1,0 +1,10 @@
+namespace: cluster-sample-ns
+adminPassword: aGFyYm9yMTIzNA==
+commonName: harb6.apps.opst.divyanshutech.xyz
+storageSize: 3Gi
+internalTLS: false
+coreHostName: harb6.apps.opst.divyanshutech.xyz
+psqlHost: psql-postgresql.psql.svc.cluster.local   
+redisHost: harbor-redis-master.cluster-sample-ns.svc.cluster.local
+psqlPasswordRef: new-psql    # name of secret containing psql password
+redisPasswordRef: harbor-redis # name of secret containing redis password

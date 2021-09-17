@@ -1,7 +1,7 @@
 operator:
   appName: operator
   # namespace in which opendistro to be installed in
-  destNamespace: harbor-operator-ns
+  destNamespace: ot
   destinationServer: https://kubernetes.default.svc
   appNamespace: default
   prune: false
@@ -18,7 +18,7 @@ operator:
   targetRevision: HEAD
   helm:
     imageTag: "latest"
-    runAsUser: 1000720001
+    runAsUser: null
     redisOperatorInstall: false
     minioOperatorInstall: false
     postgresOperatorInstall: false
@@ -39,4 +39,4 @@ cluster:
   sourcePath: harbor-cluster-components 
   # official repo of opendistro
   repoURL: 'https://github.com/divyanshuch1/harbor.git'
-  targetRevision: v1
+  targetRevision: v2
