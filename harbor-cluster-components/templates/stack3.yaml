@@ -93,9 +93,9 @@ spec:
     spec:
       postgresql: 
         username: postgres # Required
-        passwordRef: new-psql # Optional
+        passwordRef: harbor-postgresql # Optional
         hosts:
-          - host: {{ .Values.psqlHost }}
+          - host: harbor-postgresql.cluster-sample-ns.svc.cluster.local
             port: 5432 # Optional  
         sslMode: require
   storage:
