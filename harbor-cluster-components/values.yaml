@@ -1,4 +1,4 @@
-namespace: cluster-sample-ns
+namespace: cluster-sample
 adminPassword: aGFyYm9yMTIzNA==
 commonName: harb6.apps.opst.divyanshutech.xyz
 storageSize: 3Gi # for filesystem
