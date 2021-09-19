@@ -24,6 +24,10 @@ postgresql:
   postgresqlDatabase: "core"
   persistence:
     size: 7Gi
+  psp:
+    create: true
+  rbac:
+    create: true
 redis:
   fullnameOverride: harbor-redis
   master:
@@ -33,6 +37,10 @@ redis:
       fsGroup: null
     containerSecurityContext:
       runAsUser: null
+    podSecurityPolicy:
+      enabled: true
+    rbac:
+      create: true    
   replica:
     persistence:
       size: 8Gi
@@ -40,4 +48,8 @@ redis:
       fsGroup: null
     containerSecurityContext:
       runAsUser: null  
+    podSecurityPolicy:
+      enabled: true
+    rbac:
+      create: true  
   
