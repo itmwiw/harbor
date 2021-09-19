@@ -97,7 +97,7 @@ spec:
         hosts:
           - host: harbor-psql.cluster-sample-ns.svc.cluster.local
             port: 5432 # Optional  
-        sslMode: prefer
+        sslMode: require
   storage:
     kind: FileSystem
     spec:
