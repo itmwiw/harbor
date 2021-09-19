@@ -25,7 +25,7 @@ operator:
 cluster:
   appName: harbor-cluster
   # namespace in which opendistro to be installed in
-  destNamespace: cluster-sample
+  destNamespace: cluster
   destinationServer: https://kubernetes.default.svc
   appNamespace: default
   prune: false
