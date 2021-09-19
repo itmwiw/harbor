@@ -25,4 +25,20 @@ postgresql:
   postgresqlDatabase: "core"
   persistence:
     size: 7Gi
-
+redis:
+  fullnameOverride: harbor-redis
+  master:
+    persistence:
+      size: 8Gi
+    podSecurityContext:
+      fsGroup: null
+    containerSecurityContext:
+      runAsUser: null
+  replica:
+    persistence:
+      size: 8Gi
+    podSecurityContext:
+      fsGroup: null
+    containerSecurityContext:
+      runAsUser: null  
+  
