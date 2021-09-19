@@ -3,8 +3,7 @@ adminPassword: aGFyYm9yMTIzNA==
 commonName: harb6.apps.opst.divyanshutech.xyz
 storageSize: 3Gi # for filesystem
 internalTLS: false
-coreHostName: harb6.apps.opst.divyanshutech.xyz
-psqlHost: psql-postgresql.psql.svc.cluster.local   
+coreHostName: harb6.apps.opst.divyanshutech.xyz  
 redisHost: harbor-redis-master.cluster-sample-ns.svc.cluster.local
 redisPasswordRef: harbor-redis # name of secret containing redis password
 postgresql:

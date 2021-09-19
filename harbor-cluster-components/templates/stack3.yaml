@@ -109,7 +109,7 @@ spec:
     spec:
       redis:
         # Server host.
-        host: {{ .Values.redisHost }}
+        host: harbor-redis-master.cluster-sample-ns.svc.cluster.local
         # Server port.
         port: 6379 # Required
         # For setting sentinel masterSet. 
