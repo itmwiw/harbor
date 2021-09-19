@@ -95,7 +95,7 @@ spec:
         username: postgres # Required
         passwordRef: harbor-psql # Optional
         hosts:
-          - host: harbor.cluster-sample-ns.svc.cluster.local
+          - host: harbor-psql.cluster-sample-ns.svc.cluster.local
             port: 5432 # Optional  
         sslMode: require
   storage:
