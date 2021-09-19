@@ -8,7 +8,7 @@ psqlHost: psql-postgresql.psql.svc.cluster.local
 redisHost: harbor-redis-master.cluster-sample-ns.svc.cluster.local
 redisPasswordRef: harbor-redis # name of secret containing redis password
 postgresql:
-  fullnameOverride: harbor
+  fullnameOverride: harbor-psql
   containerSecurityContext:
     runAsUser: null
   securityContext:
@@ -21,5 +21,5 @@ postgresql:
     enabled: true
   postgresqlDatabase: "core"
   persistence:
-    size: 8Gi
+    size: 7Gi
 
