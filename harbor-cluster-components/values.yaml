@@ -9,9 +9,12 @@ redisPasswordRef: harbor-redis # name of secret containing redis password
 postgresql:
   fullnameOverride: harbor-psql
   containerSecurityContext:
-    runAsUser: null
+    enabled: false
   securityContext:
-    fsGroup: null
+    enabled: false
+  shmVolume:
+    chmod:
+      enabled: false  
   tls:
     ## @param tls.enabled Enable TLS traffic support
     ##  
@@ -22,7 +25,7 @@ postgresql:
   volumePermissions:
     enabled: true
     securityContext:
-      runAsUser: null
+      runAsUser: "auto"
   postgresqlDatabase: "core"
   persistence:
     size: 7Gi
