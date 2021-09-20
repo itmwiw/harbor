@@ -14,7 +14,7 @@ type: Opaque
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: harbor-selfsigned-issuer
+  name: selfsigned-issuer
   namespace: {{ .Values.namespace }}
 spec:
   selfSigned: {}
@@ -38,7 +38,7 @@ spec:
     size: 4096
   issuerRef:
     kind: Issuer
-    name: harbor-selfsigned-issuer
+    name: selfsigned-issuer
   secretName: harbor-public-certificate
 
 ---
