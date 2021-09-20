@@ -41,22 +41,14 @@ redis:
     persistence:
       size: 8Gi
     podSecurityContext:
-      fsGroup: null
+      enabled: false
     containerSecurityContext:
-      runAsUser: null
-    podSecurityPolicy:
-      enabled: true
-    rbac:
-      create: true    
+      enabled: false
   replica:
     persistence:
       size: 8Gi
     podSecurityContext:
-      fsGroup: null
+      enabled: false
     containerSecurityContext:
-      runAsUser: null  
-    podSecurityPolicy:
-      enabled: true
-    rbac:
-      create: true  
+      enabled: false 
   
