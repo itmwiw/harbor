@@ -19,3 +19,4 @@ metadata:
     argocd.argoproj.io/secret-type: repository
 stringData:
   url: https://operator.min.io/
+  type: helm
