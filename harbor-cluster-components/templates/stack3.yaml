@@ -67,11 +67,11 @@ spec:
   imageSource:
     repository: ghcr.io/goharbor
   harborAdminPasswordRef: admin-core-secret
-  externalURL: https://harb6.apps.opst.divyanshutech.xyz
+  externalURL: https://{{ .Values.coreHostName }}
   expose:
     core:
       ingress:
-        host: harb6.apps.opst.divyanshutech.xyz
+        host: {{ .Values.coreHostName }}
         controller: default
       tls:
         certificateRef: harbor-public-certificate

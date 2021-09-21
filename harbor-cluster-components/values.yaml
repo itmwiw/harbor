@@ -1,10 +1,9 @@
 namespace: cluster
-adminPassword: aGFyYm9yMTIzNA==
+adminPassword: aGFyYm9yMTIzNA==     # base64 encoded admin password
 commonName: harb6.apps.opst.divyanshutech.xyz
 storageSize: 3Gi # for filesystem
 internalTLS: false
-coreHostName: harb6.apps.opst.divyanshutech.xyz 
-redisPasswordRef: harbor-redis # name of secret containing redis password
+coreHostName: harb6.apps.opst.divyanshutech.xyz #domain name
 postgresql:
   fullnameOverride: harbor-psql
   containerSecurityContext:
