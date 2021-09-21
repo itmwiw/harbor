@@ -32,7 +32,7 @@ cluster:
   selfHeal: false
   syncOptions:
     - Validate=false
-    - PruneLast=true
+    - PruneLast=false
     - Replace=false
     - CreateNamespace=false
     - ApplyOutOfSyncOnly=false
