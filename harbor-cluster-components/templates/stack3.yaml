@@ -93,9 +93,9 @@ spec:
     spec:
       postgresql: 
         username: postgres # Required
-        passwordRef: harbor-psql # Optional
+        passwordRef: {{ .Values.postgresql.fullnameOverride }} # Optional
         hosts:
-          - host: harbor-psql.cluster.svc.cluster.local
+          - host: {{ .Values.postgresql.fullnameOverride }}.cluster.svc.cluster.local
             port: 5432 # Optional  
         sslMode: require
   storage:
@@ -109,11 +109,11 @@ spec:
     spec:
       redis:
         # Server host.
-        host: harbor-redis-master.cluster.svc.cluster.local
+        host: {{ .Values.redis.fullnameOverride }}-master.cluster.svc.cluster.local
         # Server port.
         port: 6379 # Required
         # For setting sentinel masterSet. 
         # Secret containing the password to use when connecting to the server.
-        passwordRef: harbor-redis # Optional
+        passwordRef: {{ .Values.redis.fullnameOverride }} # Optional
         # Secret containing the client certificate to authenticate with.
 
