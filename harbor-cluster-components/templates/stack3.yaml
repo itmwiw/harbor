@@ -27,8 +27,8 @@ metadata:
   namespace: {{ .Values.namespace }}
 spec:
   isCA: true
-  duration: 2160h # 90d 2160h
-  renewBefore: 168h # 7d 168h
+  duration: 2160h0m0s # 90d 2160h
+  renewBefore: 168h0m0s # 7d 168h
   commonName: {{ .Values.commonName }}
   dnsNames:
     - {{ .Values.commonName }}
