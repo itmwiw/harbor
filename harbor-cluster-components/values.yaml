@@ -6,7 +6,7 @@ internalTLS: false
 coreHostName: harb6.apps.opst.divyanshutech.xyz #domain name
 postgresql:
   fullnameOverride: harbor-psql
-  containerSecurityContext:
+  containerSecurityContext: 
     enabled: false
   securityContext:
     enabled: false
