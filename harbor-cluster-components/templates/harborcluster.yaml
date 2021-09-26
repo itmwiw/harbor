@@ -1,0 +1,63 @@
+
+# Full stack Harbor
+apiVersion: goharbor.io/v1beta1
+kind: HarborCluster
+metadata:
+  name: harborcluster-sample
+  namespace: {{ .Values.namespace }}
+spec:
+  version: 2.3.0
+  logLevel: debug
+  imageSource:
+    repository: ghcr.io/goharbor
+  harborAdminPasswordRef: admin-core-secret
+  externalURL: https://{{ .Values.coreHostName }}
+  expose:
+    core:
+      ingress:
+        host: {{ .Values.coreHostName }}
+        controller: default
+      tls:
+        certificateRef: harbor-public-certificate
+  internalTLS:
+    enabled: {{ .Values.internalTLS }}
+  portal: {}
+  registry:
+    metrics:
+      enabled: true
+  core:
+    tokenIssuer:
+      name: selfsigned-issuer
+      kind: Issuer
+    metrics:
+      enabled: true
+  exporter: {}
+  database:
+    kind: PostgreSQL
+    spec:
+      postgresql: 
+        username: postgres # Required
+        passwordRef: {{ .Values.postgresql.fullnameOverride }} # Optional
+        hosts:
+          - host: {{ .Values.postgresql.fullnameOverride }}.cluster.svc.cluster.local
+            port: 5432 # Optional  
+        sslMode: require
+  storage:
+    kind: FileSystem
+    spec:
+      fileSystem:
+        registryPersistentVolume:
+          claimName: harbor-registry
+  cache:
+    kind: "Redis"
+    spec:
+      redis:
+        # Server host.
+        host: {{ .Values.redis.fullnameOverride }}-master.cluster.svc.cluster.local
+        # Server port.
+        port: 6379 # Required
+        # For setting sentinel masterSet. 
+        # Secret containing the password to use when connecting to the server.
+        passwordRef: {{ .Values.redis.fullnameOverride }} # Optional
+        # Secret containing the client certificate to authenticate with.
+

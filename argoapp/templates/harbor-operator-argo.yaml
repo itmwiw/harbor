@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.operator.appName }}
+spec:
+  destination:
+    name: ''
+    namespace: {{ .Values.operator.destNamespace }}
+    server: '{{ .Values.operator.destinationServer }}'
+  project: {{ .Values.operator.appNamespace }}
+  syncPolicy: 
+  # set automated to null if sync to be manual
+    automated: 
+      prune: {{ .Values.operator.prune }}
+      selfHeal: {{ .Values.operator.selfHeal }} 
+    {{ with .Values.operator.syncOptions }}
+    syncOptions:
+      {{- toYaml . | nindent 6 }}
+    {{ end }}    
+  source:
+    path: {{ .Values.operator.sourcePath }}
+    repoURL: '{{ .Values.operator.repoURL }}'
+    targetRevision: {{ .Values.operator.targetRevision }}   
+    helm:
+      values: |-
+        image:
+          tag: {{ .Values.operator.helm.imageTag }}
+        installCRDs: true
+        podSecurityContext:
+          runAsUser: {{ .Values.operator.helm.runAsUser }}
+          runAsNonRoot: true
+          # fsGroup: 2000
+        redisoperator:
+          # redisoperator.enabled -- Whether to enabled [Redis Operator](https://github.com/spotahome/redis-operator)
+          enabled: {{ .Values.operator.helm.redisOperatorInstall }}
+          rbac:
+            install: true
+
+        minio-operator:
+          # minio-operator.enabled -- Whether to enabled [MinIO Operator](https://github.com/minio/operator)
+          enabled: {{ .Values.operator.helm.minioOperatorInstall }}
+
+        postgres-operator:
+          # postgres-operator.enabled -- Whether to enabled [Postgres operator](https://github.com/zalando/postgres-operator)
+          enabled: {{ .Values.operator.helm.postgresOperatorInstall }}

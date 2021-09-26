@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: harbor-operator-repo
+  namespace: default
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  url: https://github.com/goharbor/harbor-operator.git
+
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: minio-operator-repo
+  namespace: default
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  url: https://operator.min.io/
+  type: helm

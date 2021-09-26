@@ -1,0 +1,42 @@
+operator:
+  appName: operator
+  # namespace in which opendistro to be installed in
+  destNamespace: ot
+  destinationServer: https://kubernetes.default.svc
+  appNamespace: default
+  prune: false
+  selfHeal: false
+  syncOptions:
+    - Validate=false
+    - PruneLast=false
+    - Replace=false
+    - CreateNamespace=false
+    - ApplyOutOfSyncOnly=false
+  sourcePath: charts/harbor-operator  
+  # official repo of opendistro
+  repoURL: 'https://github.com/goharbor/harbor-operator.git'
+  targetRevision: HEAD
+  helm:
+    imageTag: "latest"
+    runAsUser: null
+    redisOperatorInstall: false
+    minioOperatorInstall: false
+    postgresOperatorInstall: false
+cluster:
+  appName: harbor-cluster
+  # namespace in which opendistro to be installed in
+  destNamespace: cluster
+  destinationServer: https://kubernetes.default.svc
+  appNamespace: default
+  prune: false
+  selfHeal: false
+  syncOptions:
+    - Validate=false
+    - PruneLast=false
+    - Replace=false
+    - CreateNamespace=false
+    - ApplyOutOfSyncOnly=false
+  sourcePath: harbor-cluster-components 
+  # official repo of opendistro
+  repoURL: 'https://github.com/divyanshuch1/harbor.git'
+  targetRevision: v2
