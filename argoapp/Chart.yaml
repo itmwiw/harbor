@@ -1,6 +1,6 @@
 apiVersion: v1
 # Harbor deployment on Openshift
-appVersion: 1.0.0
+appVersion: 2.3.3
 description: 'Harbor deployment on Openshift'
 name: harbor-operator-argo
 # Chart version

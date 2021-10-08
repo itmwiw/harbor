@@ -1,12 +1,35 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: harbor-registry
-  namespace: {{ .Values.namespace }}
+  name: {{ .Release.Name }}-registry
 spec:
   accessModes:
     - ReadWriteOnce
   volumeMode: Filesystem
   resources:
     requests:
-      storage: {{ .Values.storageSize }}
+      storage: {{ .Values.registry.storage.registryPersistentVolume.size }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-harbor-trivy-reports
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: {{ .Values.trivy.reportsPersistentVolume.size }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-harbor-trivy-cache
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: {{ .Values.trivy.cachePersistentVolume.size }}

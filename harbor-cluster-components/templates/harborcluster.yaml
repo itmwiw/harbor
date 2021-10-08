@@ -3,28 +3,30 @@
 apiVersion: goharbor.io/v1beta1
 kind: HarborCluster
 metadata:
-  name: harborcluster-sample
-  namespace: {{ .Values.namespace }}
+  name: {{ .Release.Name }}
+
 spec:
-  version: 2.3.0
-  logLevel: debug
-  imageSource:
-    repository: ghcr.io/goharbor
-  harborAdminPasswordRef: admin-core-secret
+  version: {{ .Values.version }}
+  logLevel: info
+  harborAdminPasswordRef: {{ .Release.Name }}-admin-core-secret
   externalURL: https://{{ .Values.coreHostName }}
   expose:
     core:
       ingress:
-        host: {{ .Values.coreHostName }}
+        host: {{ .Values.core.ingress.hostname }}
         controller: default
+        annotations:
+          kubernetes.io/ingress.class: "{{ .Values.core.ingress.class }}"
       tls:
-        certificateRef: harbor-public-certificate
+        certificateRef: {{ .Release.Name }}-core-tls
+
   internalTLS:
-    enabled: {{ .Values.internalTLS }}
+    enabled: false
   portal: {}
   registry:
     metrics:
       enabled: true
+
   core:
     tokenIssuer:
       name: selfsigned-issuer
@@ -32,28 +34,38 @@ spec:
     metrics:
       enabled: true
   exporter: {}
+
+  # Database configuration
+  # https://github.com/goharbor/harbor-operator/blob/master/docs/CRD/custom-resource-definition.md#standard-database
+  
   database:
     kind: PostgreSQL
     spec:
       postgresql: 
         username: postgres # Required
-        passwordRef: {{ .Values.postgresql.fullnameOverride }} # Optional
+        passwordRef: {{ .Values.postgresql.fullnameOverride }}
         hosts:
-          - host: {{ .Values.postgresql.fullnameOverride }}.cluster.svc.cluster.local
-            port: 5432 # Optional  
-        sslMode: require
+          - host: {{ .Values.postgresql.fullnameOverride }}
+            port: 5432  
+        sslMode: disable
+
+  
   storage:
     kind: FileSystem
     spec:
+      # Filesystem storage configuration
+      # https://github.com/goharbor/harbor-operator/blob/master/docs/CRD/custom-resource-definition.md#filesystem
       fileSystem:
         registryPersistentVolume:
-          claimName: harbor-registry
+          claimName: {{ .Release.Name }}-registry
+
+
   cache:
     kind: "Redis"
     spec:
       redis:
         # Server host.
-        host: {{ .Values.redis.fullnameOverride }}-master.cluster.svc.cluster.local
+        host: {{ .Values.redis.fullnameOverride }}-master
         # Server port.
         port: 6379 # Required
         # For setting sentinel masterSet. 
@@ -61,3 +73,11 @@ spec:
         passwordRef: {{ .Values.redis.fullnameOverride }} # Optional
         # Secret containing the client certificate to authenticate with.
 
+
+  trivy:
+    skipUpdate: false
+    storage:
+      cachePersistentVolume:
+        claimName: {{ .Release.Name }}-harbor-trivy-cache
+      reportsPersistentVolume:
+        claimName: {{ .Release.Name }}-harbor-trivy-reports

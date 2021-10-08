@@ -11,12 +11,14 @@ spec:
   syncPolicy: 
   # set automated to null if sync to be manual
     automated: 
-      prune: {{ .Values.cluster.prune }}
-      selfHeal: {{ .Values.cluster.selfHeal }} 
-    {{ with .Values.cluster.syncOptions }}
+      prune: true
+      selfHeal: true
     syncOptions:
-      {{- toYaml . | nindent 6 }}
-    {{ end }}    
+      - Validate=true
+      - PruneLast=false
+      - Replace=false
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
   source:
     path: {{ .Values.cluster.sourcePath }}
     repoURL: '{{ .Values.cluster.repoURL }}'
