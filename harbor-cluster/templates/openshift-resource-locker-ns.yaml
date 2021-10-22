@@ -10,7 +10,7 @@ spec:
   - targetObjectRef:
       apiVersion: v1
       kind: Namespace
-      name: {{ .Release.Name }}
+      name: {{ .Release.Namespace }}
     patchTemplate: |
       metadata:
         annotations:
