@@ -11,7 +11,7 @@ core:
     class: nginx
     issuer:
       create: false
-      kind: ClusterIssuer
+      kind: Issuer #ClusterIssuer
       name: selfsigned-issuer #letsencrypt-production-http
 
 registry:
