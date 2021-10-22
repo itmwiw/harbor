@@ -1,3 +1,7 @@
+openshift:
+  patchNs:
+    enabled: true
+
 version: 2.3.3
 
 
