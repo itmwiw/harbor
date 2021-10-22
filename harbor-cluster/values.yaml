@@ -7,12 +7,12 @@ version: 2.3.3
 
 core:
   ingress:
-    hostname: harbor.example.com
+    hostname: harbor.thadvatys.com
     class: nginx
     issuer:
       create: false
       kind: ClusterIssuer
-      name: letsencrypt-production-http
+      name: selfsigned-issuer #letsencrypt-production-http
 
 registry:
   storage:
