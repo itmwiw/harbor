@@ -20,7 +20,7 @@ spec:
   volumeMode: Filesystem
   resources:
     requests:
-      storage: {{ .Values.trivy.reportsPersistentVolume.size }}
+      storage: {{ .Values.trivy.storage.reportsPersistentVolume.size }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -32,4 +32,4 @@ spec:
   volumeMode: Filesystem
   resources:
     requests:
-      storage: {{ .Values.trivy.cachePersistentVolume.size }}
+      storage: {{ .Values.trivy.storage.cachePersistentVolume.size }}
