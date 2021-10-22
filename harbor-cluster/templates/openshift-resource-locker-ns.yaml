@@ -1,0 +1,57 @@
+ {{- if .Values.openshift.patchNs.enabled }}
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: ResourceLocker
+metadata:
+  name: {{ .Release.Name }}-harbor-cluster-ns-patch
+spec:
+  serviceAccountRef:
+    name: {{ .Release.Name }}-resource-locker
+  patches:
+  - targetObjectRef:
+      apiVersion: v1
+      kind: Namespace
+      name: {{ .Release.Name }}
+    patchTemplate: |
+      metadata:
+        annotations:
+          openshift.io/sa.scc.mcs: s0:c29,c4
+          openshift.io/sa.scc.supplemental-groups: 10000/10000
+          openshift.io/sa.scc.uid-range: 10000/10000
+    patchType: application/strategic-merge-patch+json
+    id: ns-annotation 
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ .Release.Name }}-resource-locker
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - create
+  - get
+  - list
+  - patch
+  - update
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ .Release.Name }}-resource-locker
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ .Release.Name }}-resource-locker
+subjects:
+- kind: ServiceAccount
+  name: {{ .Release.Name }}-resource-locker
+  namespace: {{ .Release.Namespace }}
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ .Release.Name }}-resource-locker
+ {{- end }}
