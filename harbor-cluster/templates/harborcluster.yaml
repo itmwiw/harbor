@@ -9,7 +9,7 @@ spec:
   version: {{ .Values.version }}
   logLevel: debug #info
   harborAdminPasswordRef: {{ .Release.Name }}-admin-core-secret
-  externalURL: https://{{ .Values.core.hostname }}
+  externalURL: https://{{ .Values.core.ingress.hostname }} #{{ .Values.coreHostName }}
   expose:
     core:
       ingress:
