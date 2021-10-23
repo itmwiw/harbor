@@ -7,7 +7,7 @@ version: 2.3.3
 
 core:
   ingress:
-    hostname: harbor.thadvatys.com
+    hostname: harbor.example.com
     class: nginx
     issuer:
       create: false
