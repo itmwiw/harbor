@@ -2,6 +2,21 @@ openshift:
   patchNs:
     enabled: true
 
+external-dns:
+  enabled: true
+  provider: aws
+  aws:
+    secretName: "aws-config-secret"
+    vault:
+      address: "http://vault.vault.svc.cluster.local:8200"
+      path: kubernetes
+      role: webhook
+      skipVerify: "true"
+      secret:
+        location: secret/data/aws/config #aws secrets in vault
+        accessKey: aws_access_key_id #name of accesskey's key in vault secret
+        secretKey: aws_secret_access_key #name of secretkey's key in vault secret
+
 version: 2.3.3
 
 
