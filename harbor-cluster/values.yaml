@@ -4,6 +4,9 @@ openshift:
 
 external-dns:
   enabled: true
+  podSecurityContext:
+    fsGroup: null
+    runAsUser: null
   provider: aws
   aws:
     secretName: "aws-config-secret"
