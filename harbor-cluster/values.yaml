@@ -9,7 +9,8 @@ external-dns:
     runAsUser: 10000
   provider: aws
   txtOwnerId: Z0465218S9L230WGWNJK
-  domainFilters[0]: thadvatys.com
+  domainFilters: 
+    - thadvatys.com
   aws:
     zoneType: public
     secretName: "aws-config-secret"
