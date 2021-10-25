@@ -8,7 +8,10 @@ external-dns:
     fsGroup: 10000
     runAsUser: 10000
   provider: aws
+  txtOwnerId: Z0465218S9L230WGWNJK
+  domainFilters[0]: thadvatys.com
   aws:
+    zoneType: public
     secretName: "aws-config-secret"
     vault:
       address: "http://vault.vault.svc.cluster.local:8200"
@@ -19,6 +22,7 @@ external-dns:
         location: secret/data/aws/config #aws secrets in vault
         accessKey: aws_access_key_id #name of accesskey's key in vault secret
         secretKey: aws_secret_access_key #name of secretkey's key in vault secret
+        credentials: credentials
 
 version: 2.3.3
 
