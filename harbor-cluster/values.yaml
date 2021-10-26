@@ -11,6 +11,7 @@ external-dns:
   txtOwnerId: Z0465218S9L230WGWNJK
   domainFilters: 
     - thadvatys.com
+  txtPrefix: txt
   aws:
     zoneType: public
     credentials:
