@@ -23,9 +23,7 @@ external-dns:
       skipVerify: "true"
       secret:
         location: secret/data/aws/config #aws secrets in vault
-        accessKey: aws_access_key_id #name of accesskey's key in vault secret
-        secretKey: aws_secret_access_key #name of secretkey's key in vault secret
-        credentials: credentials
+        credentials: credentials #name of aws credentials's key in vault secret
 
 version: 2.3.3
 
