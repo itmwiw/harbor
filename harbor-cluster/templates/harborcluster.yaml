@@ -17,6 +17,9 @@ spec:
         controller: default
         annotations:
           kubernetes.io/ingress.class: "{{ .Values.core.ingress.class }}"
+          cert-manager.io/issuer: {{ .Values.core.ingress.issuer.name }}
+          kubernetes.io/tls-acme: "true"
+          ingress.kubernetes.io/force-ssl-redirect: "true"
       tls:
         certificateRef: {{ .Release.Name }}-core-tls
 
