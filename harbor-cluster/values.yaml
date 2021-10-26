@@ -25,7 +25,6 @@ external-dns:
         location: secret/data/aws/config #aws secrets in vault
         accessKey: aws_access_key_id #name of accesskey's key in vault secret
         secretKey: aws_secret_access_key #name of secretkey's key in vault secret
-        credentials: credentials
 
 version: 2.3.3
 
