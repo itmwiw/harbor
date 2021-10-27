@@ -11,10 +11,10 @@ spec:
     oidcName: "keycloak"
     oidcEndpoint: "http://keycloak-keycloak.apps.sandbox.thadvatys.com/auth/realms/harbor"
     oidcClientId: "harbor"
-    oidcGroupsClaim: "policy"
+    oidcGroupsClaim: "harbor"
     oidcAdminGroup: "admin"
-    oidcScope: "openid,offline_access"
-    oidcUserClaim: "username"
+    oidcScope: "openid,offline_access,profile,email"
+    #oidcUserClaim: "username"
     oidcVerifyCert: false
     oidcAutoOnboard: false
 
