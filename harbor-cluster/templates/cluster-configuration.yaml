@@ -1,21 +1,21 @@
-#https://github.com/goharbor/harbor/blob/0867a6bfd6f33149f86a7ae8a740f5e1f976cafa/api/v2.0/swagger.yaml#L7990
+
 apiVersion: goharbor.io/v1beta1
 kind: HarborConfiguration
 metadata:
-  name: {{ .Release.Name }}-configuration
+  name: {{ .Release.Name }}-oidc-configuration
 spec:
   # your harbor configuration
   configuration:
     authMode: oidc_auth 
     oidcClientSecret: {{ .Release.Name }}-configuration-secret
     oidcName: "keycloak"
-    oidcEndpoint: "http://keycloak-keycloak.apps.sandbox.thadvatys.com/auth/realms/harbor"
-    oidcClientId: "harbor"
-    oidcGroupsClaim: "harbor"
-    oidcAdminGroup: "admin"
-    oidcScope: "openid,offline_access,profile,email"
+    oidcEndpoint: {{ .Values.core.oidc.endpoint }}
+    oidcClientId: {{ .Values.core.oidc.clientId }}
+    oidcGroupsClaim: {{ .Values.core.oidc.groupsClaim }}
+    oidcAdminGroup: {{ .Values.core.oidc.adminGroup }}
+    oidcScope: {{ .Values.core.oidc.scope }}
     #oidcUserClaim: "username"
-    oidcVerifyCert: false
+    oidcVerifyCert: {{ .Values.core.oidc.verifyCert }}
     oidcAutoOnboard: false
 
 
