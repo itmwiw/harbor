@@ -8,8 +8,8 @@ spec:
     # You must replace this email address with your own.
     # Let's Encrypt will use this to contact you about expiring
     # certificates, and issues related to your account.
-    email: tarik.haddouchi@advatys.com
-    server: https://acme-staging-v02.api.letsencrypt.org/directory #https://acme-v02.api.letsencrypt.org/directory
+    email: {{ .Values.core.ingress.issuer.acme.email }}
+    server: {{ .Values.core.ingress.issuer.acme.server }}
     privateKeySecretRef:
       # Secret resource used to store the account's private key.
       name: harbor-issuer-account-key
@@ -17,14 +17,3 @@ spec:
     - http01:
        ingress:
          class: {{ .Values.core.ingress.class }}
-    # - selector:
-        # dnsZones:
-          # - "thadvatys.com"
-      # dns01:
-        # route53:
-          # region: us-west-2
-          # hostedZoneID: Z0465218S9L230WGWNJK # optional, see policy above
-          # #accessKeyID: AKIAIOSFODNN7EXAMPLE
-          # secretAccessKeySecretRef:
-            # name: aws-config-secret
-            # key: credentials #secret-access-key

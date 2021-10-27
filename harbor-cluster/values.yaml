@@ -36,6 +36,10 @@ core:
       create: false
       kind: Issuer #ClusterIssuer
       name: letsencrypt-production-http
+      acme:
+        email: tarik.haddouchi@advatys.com
+        server: https://acme-v02.api.letsencrypt.org/directory #https://acme-staging-v02.api.letsencrypt.org/directory
+        
 
 registry:
   storage:
