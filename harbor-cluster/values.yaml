@@ -40,6 +40,7 @@ core:
         email: tarik.haddouchi@advatys.com
         server: https://acme-v02.api.letsencrypt.org/directory
   oidc:
+    enabled: true
     name: "keycloak"
     endpoint: "http://keycloak-keycloak.apps.sandbox.thadvatys.com/auth/realms/harbor"
     clientId: "harbor"

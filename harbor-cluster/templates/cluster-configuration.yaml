@@ -1,4 +1,4 @@
-
+ {{- if .Values.core.oidc.enabled }}
 apiVersion: goharbor.io/v1beta1
 kind: HarborConfiguration
 metadata:
@@ -17,6 +17,5 @@ spec:
     #oidcUserClaim: "username"
     oidcVerifyCert: {{ .Values.core.oidc.verifyCert }}
     oidcAutoOnboard: false
-
-
   harborClusterRef: {{ .Release.Name }}
+ {{- end }}
