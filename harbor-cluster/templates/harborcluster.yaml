@@ -40,16 +40,19 @@ spec:
   # https://github.com/goharbor/harbor-operator/blob/master/docs/CRD/custom-resource-definition.md#standard-database
   
   database:
-    kind: PostgreSQL
+    kind: Zlando/PostgreSQL
     spec:
-      postgresql: 
-        username: postgres # Required
-        passwordRef: {{ .Values.postgresql.fullnameOverride }}
-        hosts:
-          - host: {{ .Values.postgresql.fullnameOverride }}
-            port: 5432  
-        sslMode: disable
-
+      zlandoPostgreSql:
+        operatorVersion: "1.7.0"
+        storage: 1Gi
+        replicas: 2
+        resources:
+          limits:
+            cpu: 500m
+            memory: 500Mi
+          requests:
+            cpu: 100m
+            memory: 250Mi
   
   storage:
     kind: FileSystem

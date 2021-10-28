@@ -5,10 +5,11 @@ description: 'Harbor cluster deployment on Openshift'
 name: harbor-cluster
 dependencies:
 
-# TODO: postgresql to HA
-- name: postgresql
-  version: "10.9.5"
-  repository: "https://charts.bitnami.com/bitnami"
+
+- name: postgres-operator
+  version: "1.7.0"
+  repository: "https://opensource.zalando.com/postgres-operator/charts/postgres-operator/"
+  condition: postgres-operator.enabled
 - name: redis
   version: "15.3.2"  
   repository: "https://charts.bitnami.com/bitnami"
