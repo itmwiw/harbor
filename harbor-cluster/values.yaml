@@ -1,8 +1,8 @@
 openshift:
   scc:
-    nonroot: true
+    nonroot: false #if you want to ass nonroot scc to default sa
   patchNs:
-    enabled: false
+    enabled: true #if you want to patch ns to allow uid and fsgroup 10000
 
 external-dns:
   enabled: true
