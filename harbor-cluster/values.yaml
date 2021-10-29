@@ -1,6 +1,6 @@
 openshift:
   scc:
-    nonroot: false #if you want to ass nonroot scc to default sa
+    nonroot: false #if you want to add nonroot scc to default sa
   patchNs:
     enabled: true #if you want to patch ns to allow uid and fsgroup 10000
   zalandoOperator:
