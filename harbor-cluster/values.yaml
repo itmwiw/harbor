@@ -3,6 +3,11 @@ openshift:
     nonroot: false #if you want to ass nonroot scc to default sa
   patchNs:
     enabled: true #if you want to patch ns to allow uid and fsgroup 10000
+  zalandoOperator:
+    namespace: postgres-zalando-operator
+    serviceAccount: postgres-zalando-operator-postgres-operator
+    createAdditionalRBAC: true
+    
 
 external-dns:
   enabled: true
@@ -83,6 +88,7 @@ postgres-operator:
   configKubernetes:
     enable_pod_antiaffinity: false
     delete_annotation_name_key: "harbor-cluster"
+    watched_namespace: "*"
 
 redis:
   master:
