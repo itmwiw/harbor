@@ -4,8 +4,6 @@ openshift:
   patchNs:
     enabled: true #if you want to patch ns to allow uid and fsgroup 10000
   zalandoOperator:
-    namespace: postgres-zalando-operator
-    serviceAccount: postgres-zalando-operator-postgres-operator
     createAdditionalRBAC: true
     
 

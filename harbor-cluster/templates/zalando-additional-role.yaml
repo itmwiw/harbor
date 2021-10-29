@@ -31,8 +31,4 @@ subjects:
 - kind: ServiceAccount
   name: postgres-pod
   namespace: {{ .Release.Namespace }}
- {{- if .Values.openshift.zalandoOperator.createAdditionalRBAC }}
-- kind: ServiceAccount
-  name: {{ .Values.openshift.zalandoOperator.serviceAccount }}
-  namespace: {{ .Values.openshift.zalandoOperator.namespace }}
  {{- end }}
