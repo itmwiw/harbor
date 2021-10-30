@@ -14,7 +14,6 @@ spec:
     patchTemplate: |
       metadata:
         annotations:
-          openshift.io/sa.scc.mcs: s0:c29,c4
           openshift.io/sa.scc.supplemental-groups: 10000/10000
           openshift.io/sa.scc.uid-range: 10000/10000
     patchType: application/strategic-merge-patch+json

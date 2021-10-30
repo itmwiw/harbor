@@ -4,16 +4,4 @@ kind: {{ .Values.core.ingress.issuer.kind }}
 metadata:
   name: {{ .Values.core.ingress.issuer.name }}
 spec:
-  acme:
-    # You must replace this email address with your own.
-    # Let's Encrypt will use this to contact you about expiring
-    # certificates, and issues related to your account.
-    email: {{ .Values.core.ingress.issuer.acme.email }}
-    server: {{ .Values.core.ingress.issuer.acme.server }}
-    privateKeySecretRef:
-      # Secret resource used to store the account's private key.
-      name: harbor-issuer-account-key
-    solvers:
-    - http01:
-       ingress:
-         class: {{ .Values.core.ingress.class }}
+{{ toYaml .Values.core.ingress.issuer.spec | indent 2 }}

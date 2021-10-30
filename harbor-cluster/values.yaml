@@ -10,8 +10,8 @@ openshift:
 external-dns:
   enabled: true
   podSecurityContext:
-    fsGroup: 10000
-    runAsUser: 10000
+    fsGroup: null
+    runAsUser: null
   provider: aws
   txtOwnerId: Z0465218S9L230WGWNJK
   domainFilters: 
@@ -31,7 +31,7 @@ external-dns:
         credentials: credentials #name of aws credentials's key in vault secret
 
 version: 2.3.3
-
+logLevel: debug #info
 
 core:
   ingress:
@@ -41,13 +41,21 @@ core:
       create: false
       kind: Issuer #ClusterIssuer
       name: letsencrypt-production-http
-      acme:
-        email: tarik.haddouchi@advatys.com
-        server: https://acme-v02.api.letsencrypt.org/directory
+      spec:
+        acme:
+          email: tarik.haddouchi@advatys.com
+          server: https://acme-v02.api.letsencrypt.org/directory
+          privateKeySecretRef:
+            name: harbor-issuer-account-key
+          solvers:
+          - http01:
+             ingress:
+               class: nginx
+               
   oidc:
     enabled: true
     name: "keycloak"
-    endpoint: "http://keycloak-keycloak.apps.sandbox.thadvatys.com/auth/realms/harbor"
+    endpoint: "http://oidcsubdomain.example.org/auth/realms/harbor"
     clientId: "harbor"
     groupsClaim: "harbor"
     adminGroup: "/admin" 
@@ -85,3 +93,14 @@ redis:
     containerSecurityContext:
       enabled: false 
   
+postgresql:
+  operatorVersion: "1.7.0"
+  storage: 1Gi
+  replicas: 2
+  resources:
+    limits:
+      cpu: 500m
+      memory: 500Mi
+    requests:
+      cpu: 100m
+      memory: 250Mi
