@@ -33,8 +33,6 @@ spec:
     serviceAccountName: {{ .Values.serviceAccount }}
   jobservice:
     serviceAccountName: {{ .Values.serviceAccount }}
-  exporter:
-    serviceAccountName: {{ .Values.serviceAccount }}
 
   core:
     serviceAccountName: {{ .Values.serviceAccount }}
@@ -43,7 +41,8 @@ spec:
       kind: Issuer
     metrics:
       enabled: true
-  exporter: {}
+  exporter:
+    serviceAccountName: {{ .Values.serviceAccount }}
 
   # Database configuration
   # https://github.com/goharbor/harbor-operator/blob/master/docs/CRD/custom-resource-definition.md#standard-database
