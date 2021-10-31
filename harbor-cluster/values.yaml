@@ -32,6 +32,7 @@ external-dns:
 
 version: 2.3.3
 logLevel: debug #info
+serviceAccount: harbor
 
 core:
   ingress:

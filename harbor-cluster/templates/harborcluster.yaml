@@ -23,12 +23,15 @@ spec:
 
   internalTLS:
     enabled: false
-  portal: {}
+  portal:
+    serviceAccountName: {{ .Values.serviceAccount }}
   registry:
+    serviceAccountName: {{ .Values.serviceAccount }}
     metrics:
       enabled: true
 
   core:
+    serviceAccountName: {{ .Values.serviceAccount }}
     tokenIssuer:
       name: selfsigned-issuer
       kind: Issuer
@@ -70,6 +73,7 @@ spec:
 
 
   trivy:
+    serviceAccountName: {{ .Values.serviceAccount }}
     skipUpdate: false
     storage:
       cachePersistentVolume:
