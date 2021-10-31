@@ -29,6 +29,8 @@ spec:
     serviceAccountName: {{ .Values.serviceAccount }}
     metrics:
       enabled: true
+  registryctl:
+    serviceAccountName: {{ .Values.serviceAccount }}
 
   core:
     serviceAccountName: {{ .Values.serviceAccount }}
