@@ -31,6 +31,10 @@ spec:
       enabled: true
   registryctl:
     serviceAccountName: {{ .Values.serviceAccount }}
+  jobservice:
+    serviceAccountName: {{ .Values.serviceAccount }}
+  exporter:
+    serviceAccountName: {{ .Values.serviceAccount }}
 
   core:
     serviceAccountName: {{ .Values.serviceAccount }}
