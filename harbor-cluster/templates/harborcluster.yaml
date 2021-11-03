@@ -43,6 +43,10 @@ spec:
       enabled: true
   exporter:
     serviceAccountName: {{ .Values.serviceAccount }}
+    
+  chartmuseum:
+    replicas: 1
+    serviceAccountName: {{ .Values.serviceAccount }}
 
   # Database configuration
   # https://github.com/goharbor/harbor-operator/blob/master/docs/CRD/custom-resource-definition.md#standard-database
