@@ -1,6 +1,6 @@
  {{- if .Values.openshift.zalandoOperator.createAdditionalRBAC }}
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   name: postgres-pod-additional
 rules:
@@ -19,12 +19,12 @@ rules:
   - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   name: {{ .Release.Name }}-postgres-pod-additional
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: postgres-pod-additional
 subjects:
 - kind: ServiceAccount
